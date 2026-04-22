@@ -1,0 +1,2240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ChoregrapheProject xmlns="http://www.ald.softbankrobotics.com/schema/choregraphe/project.xsd" xar_version="3">
+  <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s behavior. Highest level possible." x="0" y="0">
+    <bitmap>media/images/box/root.png</bitmap>
+    <script language="4">
+      <content>
+        <![CDATA[]]>
+      </content>
+    </script>
+    <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+    <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+    <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+    <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+    <Timeline enable="0">
+      <BehaviorLayer name="behavior_layer1">
+        <BehaviorKeyframe name="keyframe1" index="1">
+          <Diagram scale="50">
+            <Box name="Red Button" id="1" localization="8" tooltip="" x="2010" y="184">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 45*almath.TO_RAD], [-5*almath.TO_RAD, -5*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Go left/Blue" id="7" localization="8" tooltip="" x="1329" y="1018">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["LShoulderPitch", "LShoulderRoll"]
+        angles = [[-20*almath.TO_RAD, 46.5*almath.TO_RAD], [41*almath.TO_RAD, 41*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Green Button" id="6" localization="8" tooltip="" x="902" y="537">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["LShoulderPitch", "LShoulderRoll"]
+        angles = [[-15*almath.TO_RAD, 44*almath.TO_RAD], [5.2*almath.TO_RAD, 5.2*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        time.sleep(2.25);
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="New Default" id="8" localization="8" tooltip="" x="235" y="566">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        namesLArm = ["LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw"]
+        anglesLArm = [[1.3*almath.TO_RAD], [22*almath.TO_RAD], [1.7*almath.TO_RAD], [-32.1*almath.TO_RAD], [9.4*almath.TO_RAD]]
+        timesLArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLArm, anglesLArm, timesLArm, True)
+
+
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="New Default (1)" id="9" localization="8" tooltip="" x="1159" y="128">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        namesLArm = ["LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw"]
+        anglesLArm = [[1.3*almath.TO_RAD], [22*almath.TO_RAD], [1.7*almath.TO_RAD], [-32.1*almath.TO_RAD], [9.4*almath.TO_RAD]]
+        timesLArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLArm, anglesLArm, timesLArm, True)
+
+        namesRArm = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw"]
+        anglesRArm = [[6.7*almath.TO_RAD], [-20.4*almath.TO_RAD], [21.3*almath.TO_RAD], [44.1*almath.TO_RAD], [-31.2*almath.TO_RAD]]
+        timesRArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRArm, anglesRArm, timesRArm, True)
+
+        namesLLeg = ["LHipYawPitch", "LHipRoll", "LHipPitch", "LKneePitch", "LAnklePitch", "LAnkleRoll"]
+        anglesLLeg = [[-10.9*almath.TO_RAD], [-5.3*almath.TO_RAD], [-52.2*almath.TO_RAD], [65.5*almath.TO_RAD], [-3.2*almath.TO_RAD], [3.4*almath.TO_RAD]]
+        timesLLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLLeg, anglesLLeg, timesLLeg, True)
+
+        namesRLeg = ["RHipYawPitch", "RHipRoll", "RHipPitch", "RKneePitch", "RAnklePitch", "RAnkleRoll"]
+        anglesRLeg = [[-10.9*almath.TO_RAD], [4.3*almath.TO_RAD], [-54.6*almath.TO_RAD], [63.4*almath.TO_RAD], [0.1*almath.TO_RAD], [-3.2*almath.TO_RAD]]
+        timesRLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRLeg, anglesRLeg, timesRLeg, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="NAOMark" id="10" localization="8" tooltip="Detect NAOMark and return its ID number." x="1164" y="1251">
+              <bitmap>media/images/box/interaction/uramark.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="LandmarkDetected" type="0" type_size="1" nature="4" stm_value_name="LandmarkDetected" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="5" />
+              <Output name="onMarkDetected" type="2" type_size="1" nature="2" inner="0" tooltip="ID number of the detected NAOmark." id="6" />
+              <Output name="onNoMark" type="1" type_size="1" nature="2" inner="0" tooltip="No NAOmark has been detected." id="7" />
+              <Timeline enable="0">
+                <BehaviorLayer name="behavior_layer1">
+                  <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                      <Box name="Get Marks List" id="1" localization="8" tooltip="Extracts the list of detected marks (empty if no mark) from the naomarks detection&#x0A;extractor data." x="139" y="75">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        markIDs = []
+        # Generic Extractor output format:
+        # p = [ [timeStampMaj, timeStampMin], [ tag0, tag1, ... tagN] ] with tag = [ shapeInfo, moreInfo ]
+        if(len(p) > 0):
+            markInfoArray = p[1]
+            for markInfo in markInfoArray:
+                moreInfo = markInfo[1]
+                # moreInfo = [ landmarkID ]
+                markIDs.append(moreInfo[0])
+        self.onStopped(markIDs)]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="0" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input. It must be the&#x0A;LandmarkDetected extractor data." id="2" />
+                        <Output name="onStopped" type="0" type_size="1" nature="1" inner="0" tooltip="Extracted list of detected marks." id="3" />
+                      </Box>
+                      <Box name="ProcessMarksList" id="2" localization="8" tooltip="Process the list of detected marks to give the ID number of the first detected mark&#x0A;and notify when there is no mark detected.&#x0A;&#x0A;An output (either one or the other) is stimulated each time the first detected&#x0A;mark changes." x="293" y="84">
+                        <bitmap>media/images/box/interaction/uramark.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.nNumLastDetected = -1
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        if(len(p) == 0):
+            self.nNumLastDetected = -1
+            self.onNoMark()
+        else:
+            if(self.nNumLastDetected != p[0]):
+                #only stimulate output if a mark wasn't detected before !
+                self.nNumLastDetected = p[0]
+                self.onMarkDetected( self.nNumLastDetected )]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="0" type_size="1" nature="2" inner="0" tooltip="The detected NAOmarks list." id="2" />
+                        <Output name="onMarkDetected" type="2" type_size="1" nature="1" inner="0" tooltip="Number of the detected NAOmark." id="3" />
+                        <Output name="onNoMark" type="1" type_size="1" nature="1" inner="0" tooltip="No NAOmark is detected." id="4" />
+                      </Box>
+                      <Link inputowner="0" indexofinput="7" outputowner="2" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="6" outputowner="2" indexofoutput="3" />
+                      <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="4" />
+                      <Link inputowner="2" indexofinput="2" outputowner="1" indexofoutput="3" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+            </Box>
+            <Box name="Vision Reco." id="5" localization="8" tooltip="Recognize pictures, objects and locations which are known by the robot.&#x0A;&#x0A;Note: the robot needs to learn the picture, object or location to be able to recognize&#x0A;it. The learning process can be done through the Video Monitor (in Choregraphe&#x0A;menu, click on View, then Video Monitor)." x="667" y="1023">
+              <bitmap>media/images/box/interaction/reco.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="4" />
+              <Output name="onPictureLabel" type="3" type_size="1" nature="2" inner="0" tooltip="Every time pictures/objects/locations are recognized, send the first picture recognized." id="5" />
+              <Output name="onNoPicture" type="1" type_size="1" nature="2" inner="0" tooltip="No picture, object or location has been recognized." id="6" />
+              <Timeline enable="0">
+                <BehaviorLayer name="behavior_layer1">
+                  <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                      <Box name="Vision Reco." id="1" localization="8" tooltip="Recognize pictures, objects and locations which are already known by the robot.&#x0A;&#x0A;Note: the robot needs to learn the picture, object or location to be able to recognize&#x0A;it. The learning process can be done through the Video Monitor (in Choregraphe&#x0A;menu, click on View, then Video Monitor)." x="95" y="161">
+                        <bitmap>media/images/box/interaction/reco.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Input name="PictureDetected" type="0" type_size="1" nature="4" stm_value_name="PictureDetected" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
+                        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="5" />
+                        <Output name="onPictureLabel" type="0" type_size="1" nature="2" inner="0" tooltip="Every time pictures/objects/locations are recognized, send the result as&#x0A;[Picture_1, ..., Picture_N], with Picture_n = [label1,...,label_M]." id="6" />
+                        <Output name="onNoPicture" type="1" type_size="1" nature="2" inner="0" tooltip="No picture, object or location has been recognized." id="7" />
+                        <Timeline enable="0">
+                          <BehaviorLayer name="behavior_layer1">
+                            <BehaviorKeyframe name="keyframe1" index="1">
+                              <Diagram>
+                                <Box name="Process Reco." id="3" localization="8" tooltip="Process picture detection extractor data (PictureDetected) to extract the labels of&#x0A;recognized pictures, objects and locations, and notify when there is nothing&#x0A;of these recognized.&#x0A;&#x0A;An output (either one or the other) is stimulated each time the recognized&#x0A;pictures, objects and locations change." x="188" y="60">
+                                  <bitmap>media/images/box/interaction/reco.png</bitmap>
+                                  <script language="4">
+                                    <content>
+                                      <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.nPicturesDetected = -1
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        if(len(p) > 1):
+            self.nPicturesDetected = len(p[1])
+            labels = []
+            for s in p[1]:
+                labels.append(s[0])
+            self.onPictureLabel( labels )
+        else:
+            if(self.nPicturesDetected != 0):
+                self.nPicturesDetected = 0
+                self.onNoPicture()]]>
+                                    </content>
+                                  </script>
+                                  <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                                  <Input name="onStart" type="0" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input. It must be the&#x0A;PictureDetected extractor data." id="2" />
+                                  <Output name="onPictureLabel" type="0" type_size="1" nature="1" inner="0" tooltip="List of recognized pictures, objects and locations labels. It is sent regularly as&#x0A;long as they are recognized.&#x0A;&#x0A;For example, you could obtain this kind of result:&#x0A;[[&apos;cover&apos;, &apos;my book&apos;], [&apos;fridge corner&apos;, &apos;kitchen&apos;, &apos;my flat&apos;]]" id="3" />
+                                  <Output name="onNoPicture" type="1" type_size="1" nature="1" inner="0" tooltip="No picture, object or location is recognized." id="4" />
+                                </Box>
+                                <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="4" />
+                                <Link inputowner="0" indexofinput="6" outputowner="3" indexofoutput="3" />
+                                <Link inputowner="0" indexofinput="7" outputowner="3" indexofoutput="4" />
+                              </Diagram>
+                            </BehaviorKeyframe>
+                          </BehaviorLayer>
+                        </Timeline>
+                      </Box>
+                      <Box name="ConvertIntoStrings" id="3" localization="8" tooltip='Convert the array of recognized objects into several strings sent one after another.&#x0A;&#x0A;For example, if the array is:&#x0A;[[&quot;page 3&quot;, &quot;Harry Potter&quot;], [&quot;bed&quot;, &quot;bedroom&quot;, &quot;home&quot;]]&#x0A;Then the output will be stimulated first with:&#x0A;&quot;Harry Potter page 3&quot;&#x0A;And then with:&#x0A;&quot;home bedroom bed&quot;' x="285" y="49">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        for element in p:
+            element.reverse()
+            newElement = ""
+            for i in range(len(element)-1):
+                newElement += str(element[i]) + " "
+            if( len(element) > 0 ):
+                newElement += str(element[len(element)-1])
+            self.onStopped( newElement )
+            self.logger.info( newElement )]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="0" type_size="1" nature="1" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Output name="onStopped" type="3" type_size="1" nature="2" inner="0" tooltip="Signal sent when box behavior is finished." id="3" />
+                      </Box>
+                      <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+                      <Link inputowner="0" indexofinput="6" outputowner="1" indexofoutput="7" />
+                      <Link inputowner="3" indexofinput="2" outputowner="1" indexofoutput="6" />
+                      <Link inputowner="0" indexofinput="5" outputowner="3" indexofoutput="3" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+            </Box>
+            <Box name="Sound Tracker" id="3" localization="-1" tooltip="This box makes the robot track a sound with different modes.&#x0A;&#x0A;V1.1.0" x="917" y="1262">
+              <bitmap>media/images/box/interaction/target_sound.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+        self.targetName = "Sound"
+        self.distance = 0.0
+        self.soundDistance = 0.5
+        self.confidence = 0.0
+        self.thresholdX = 0.0
+        self.effector = "None"
+        self.sensitivity = 0.7
+        self.subscribeDone = False
+        self.isRunning = False
+
+    def onLoad(self):
+        self.tracker = self.session().service( "ALTracker" )
+        self.memory = self.session().service("ALMemory")
+        try:
+            self.soundLocation = self.session().service("ALSoundLocalization")
+        except Exception as e:
+            self.soundLocation = None
+            self.logger.error(e)
+        self.BIND_PYTHON(self.getName(), "setParameter")
+        self.BIND_PYTHON(self.getName(), "onTargetLost")
+        self.BIND_PYTHON(self.getName(), "onTargetReached")
+        self.BIND_PYTHON(self.getName(), "onTargetChanged")
+        if self.soundLocation:
+            self.memory.subscribeToEvent("ALTracker/ActiveTargetChanged", self.getName(), "onTargetChanged")
+
+    def onUnload(self):
+        if self.subscribeDone:
+            self.memory.unsubscribeToEvent("ALTracker/TargetLost", self.getName())
+            self.memory.unsubscribeToEvent("ALTracker/TargetReached", self.getName())
+            self.subscribeDone = False
+
+        if self.isRunning:
+            self.tracker.setEffector("None")
+            self.tracker.stopTracker()
+            self.tracker.unregisterTarget(self.targetName)
+            self.isRunning = False
+
+    def onInput_onStart(self):
+        self.memory.subscribeToEvent("ALTracker/TargetLost", self.getName(), "onTargetLost")
+        self.memory.subscribeToEvent("ALTracker/TargetReached", self.getName(), "onTargetReached")
+        self.subscribeDone = False
+
+        mode = self.getParameter("Mode")
+        self.confidence = self.getParameter("Threshold to be sure of the location (%)") / 100.0
+        self.distance = self.getParameter("Distance (m)")
+        self.thresholdX = self.getParameter("Threshold X (m)")
+        self.effector = self.getParameter("Effector")
+        self.sensitivity = self.getParameter("Sensitivity")
+
+        if self.soundLocation:
+            self.soundLocation.setParameter("Sensitivity", self.sensitivity)
+
+        self.tracker.setEffector(self.effector)
+
+        self.tracker.registerTarget(self.targetName, [self.soundDistance, self.confidence])
+        self.tracker.setRelativePosition([-self.distance, 0.0, 0.0,
+                                            self.thresholdX, 0.1, 0.3])
+        self.tracker.setMode(mode)
+
+        self.tracker.track(self.targetName) #Start tracker
+        self.isRunning = True
+
+    def onInput_onStop(self):
+        self.onStopped()
+        self.onUnload()
+
+    def setParameter(self, parameterName, newValue):
+        GeneratedClass.setParameter(self, parameterName, newValue)
+        if (parameterName == 'Mode'):
+            self.tracker.setMode(newValue)
+            return
+
+        if (parameterName == "Threshold to be sure of the location (%)"):
+            self.confidence = self.getParameter("Threshold to be sure of the location (%)") / 100.0
+            self.tracker.registerTarget(self.targetName, [self.soundDistance, self.confidence])
+            return
+
+        if (parameterName == "Distance (m)"):
+            self.distance = newValue
+            self.tracker.setRelativePosition([-self.distance, 0.0, 0.0,
+                                                self.thresholdX, 0.1, 0.3])
+            return
+
+        if (parameterName == "Threshold X (m)"):
+            self.thresholdX = newValue
+            self.tracker.setRelativePosition([-self.distance, 0.0, 0.0,
+                                                self.thresholdX, 0.1, 0.3])
+            return
+
+        if(parameterName == "Effector"):
+            self.tracker.setEffector(newValue)
+            self.effector = newValue
+            return
+
+        if(parameterName == "Sensitivity"):
+            self.sensitivity = newValue
+            if self.soundLocation:
+                self.soundLocation.setParameter("Sensitivity", self.sensitivity)
+            return
+
+
+    def onTargetLost(self, key, value, message):
+        self.targetLost()
+
+    def onTargetReached(self, key, value, message):
+        self.targetReached()
+
+    def onTargetChanged(self, key, value, message):
+        if value == self.targetName and not self.subscribeDone:
+            self.memory.subscribeToEvent("ALTracker/TargetLost", self.getName(), "onTargetLost")
+            self.memory.subscribeToEvent("ALTracker/TargetReached", self.getName(), "onTargetReached")
+            self.subscribeDone = True
+        elif value != self.targetName and self.subscribeDone:
+            self.memory.unsubscribeToEvent("ALTracker/TargetLost", self.getName())
+            self.memory.unsubscribeToEvent("ALTracker/TargetReached", self.getName())
+            self.subscribeDone = False]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+              <Output name="targetLost" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when the target is lost." id="5" />
+              <Output name="targetReached" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when the target is reached." id="6" />
+              <Parameter name="Mode" inherits_from_parent="0" content_type="3" value="Head" default_value="Head" custom_choice="0" tooltip="Set tracker mode" id="7">
+                <Choice value="Head" />
+                <Choice value="WholeBody" />
+                <Choice value="Move" />
+              </Parameter>
+              <Parameter name="Effector" inherits_from_parent="0" content_type="3" value="None" default_value="None" custom_choice="0" tooltip="Set effector to use for tracking. Head is always used." id="8">
+                <Choice value="None" />
+                <Choice value="Arms" />
+                <Choice value="LArm" />
+                <Choice value="RArm" />
+              </Parameter>
+              <Parameter name="Threshold to be sure of the location (%)" inherits_from_parent="0" content_type="1" value="50" default_value="50" min="1" max="100" tooltip="If a sound is localized with a threshold higher than this value, then the sound&#x0A;location will be sent on the output. Else, the robot will consider that the sound is not&#x0A;localized at the right location and he will not take it into account." id="9" />
+              <Parameter name="Distance (m)" inherits_from_parent="0" content_type="2" value="0.3" default_value="0.3" min="0.01" max="5" tooltip="Distance the robot will try to maintain from its target in move modes." id="10" />
+              <Parameter name="Threshold X (m)" inherits_from_parent="0" content_type="2" value="0.1" default_value="0.1" min="0.01" max="1" tooltip="Threshold above which the robot will move to track its target in move modes." id="11" />
+              <Parameter name="Sensitivity" inherits_from_parent="0" content_type="2" value="0.7" default_value="0.7" min="0.01" max="1" tooltip="Sensitivity to adjust the capacity of the robot to locate quiet sounds." id="12" />
+            </Box>
+            <Box name="Sound Peak" id="11" localization="8" tooltip="Detect sound peaks.&#x0A;Each time a sound peak is detected, the onPeak output is stimulated.&#x0A;&#x0A;Note: You can set the sensibility to detect the sound peak in parameters.&#x0A;&#x0A;V1.1.0" x="784" y="860">
+              <bitmap>media/images/box/sensors/STM.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+        try:
+            self.sound = self.session().service("ALSoundDetection")
+        except Exception as e:
+            self.sound = None
+            self.logger.error(e)
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        if self.sound:
+            self.sound.setParameter("Sensibility", self.getParameter("Sensibility"))
+        else:
+            self.logger.warning("No Sound Peak can be detected")
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="SoundDetected" type="0" type_size="1" nature="4" stm_value_name="SoundDetected" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="5" />
+              <Output name="onPeak" type="1" type_size="1" nature="2" inner="0" tooltip="Stimulated when a sound peak is detected." id="6" />
+              <Parameter name="Sensibility" inherits_from_parent="0" content_type="2" value="0.5" default_value="0.9" min="0" max="1" tooltip="Sensibility to detect the sound peak." id="7" />
+              <Timeline enable="0">
+                <BehaviorLayer name="behavior_layer1">
+                  <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                      <Box name="SelectElement" id="1" localization="8" tooltip="Enter tooltip here" x="220" y="61">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        self.onStopped( p[ self.getParameter( "index" ) ] )
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
+        pass]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="0" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Output name="onStopped" type="0" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                        <Parameter name="index" inherits_from_parent="0" content_type="1" value="3" default_value="0" min="0" max="100" tooltip="" id="5" />
+                      </Box>
+                      <Box name="If" id="2" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="363" y="60">
+                        <bitmap>media/images/box/box-diagram.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onData(self, p):
+        param = self.getParameter("Value to compare")
+        try:
+            p = float(p)
+            param = float(param)
+        except:
+            p = str(p)
+            param = str(param)
+        operator = self.getParameter("Condition operator")
+        if( operator == "<" ):
+            self.outputTrueOrFalse( p < param )
+        elif( operator == "< or =" ):
+            self.outputTrueOrFalse( p <= param )
+        elif( operator == "=" ):
+            self.outputTrueOrFalse( p == param )
+        elif( operator == "> or =" ):
+            self.outputTrueOrFalse( p >= param )
+        elif( operator == ">" ):
+            self.outputTrueOrFalse( p > param )
+        elif( operator == "≠" ):
+            self.outputTrueOrFalse( p != param )
+        else:
+            raise Exception( "Operator not known: " + str(operator) )
+
+    def outputTrueOrFalse(self, condition):
+        if( condition ):
+            self.output_then()
+        else:
+            self.output_else()]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onData" type="0" type_size="1" nature="1" inner="0" tooltip="The data to test." id="2" />
+                        <Output name="output_then" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent if the condition is true." id="3" />
+                        <Output name="output_else" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent if the condition is false." id="4" />
+                        <Parameter name="Condition operator" inherits_from_parent="0" content_type="3" value="=" default_value="=" custom_choice="0" tooltip='Choose the condition operator.&#x0A;&#x0A;For example:&#x0A;If you choose &quot;&gt; or =&quot;, the condition will be: is the input is higher or equal&#x0A;than the parameter?' id="5">
+                          <Choice value="&lt;" />
+                          <Choice value="&lt; or =" />
+                          <Choice value="=" />
+                          <Choice value="&gt; or =" />
+                          <Choice value="&gt;" />
+                          <Choice value="≠" />
+                        </Parameter>
+                        <Parameter name="Value to compare" inherits_from_parent="0" content_type="3" value="1" default_value="0" custom_choice="0" tooltip="This is the value which is compared to the input value." id="6" />
+                      </Box>
+                      <Box name="Array Streaming" id="3" localization="8" tooltip="When an array is received on the input of this box, each element is sent one by one&#x0A;to the output." x="76" y="62">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onArray(self, p):
+        if( type(p) == type([]) ):
+            for elem in p:
+                self.element(elem)]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onArray" type="0" type_size="1" nature="1" inner="0" tooltip="The array to stream." id="2" />
+                        <Output name="element" type="0" type_size="1" nature="2" inner="0" tooltip="Each element of the array is sent to this output." id="3" />
+                      </Box>
+                      <Link inputowner="2" indexofinput="2" outputowner="1" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="6" outputowner="2" indexofoutput="3" />
+                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="4" />
+                      <Link inputowner="1" indexofinput="2" outputowner="3" indexofoutput="3" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+            </Box>
+            <Box name="New Default (3)" id="14" localization="8" tooltip="" x="236" y="451">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+
+
+        namesRArm = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw"]
+        anglesRArm = [[6.7*almath.TO_RAD], [-20.4*almath.TO_RAD], [21.3*almath.TO_RAD], [44.1*almath.TO_RAD], [-31.2*almath.TO_RAD]]
+        timesRArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRArm, anglesRArm, timesRArm, True)
+
+
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="New Default (4)" id="15" localization="8" tooltip="" x="233" y="337">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+
+
+        namesRLeg = ["RHipYawPitch", "RHipRoll", "RHipPitch", "RKneePitch", "RAnklePitch", "RAnkleRoll"]
+        anglesRLeg = [[-10.9*almath.TO_RAD], [4.3*almath.TO_RAD], [-54.6*almath.TO_RAD], [63.4*almath.TO_RAD], [0.1*almath.TO_RAD], [-3.2*almath.TO_RAD]]
+        timesRLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRLeg, anglesRLeg, timesRLeg, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="New Default (5)" id="16" localization="8" tooltip="" x="736" y="1260">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        namesLArm = ["LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw"]
+        anglesLArm = [[1.3*almath.TO_RAD], [22*almath.TO_RAD], [1.7*almath.TO_RAD], [-32.1*almath.TO_RAD], [9.4*almath.TO_RAD]]
+        timesLArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLArm, anglesLArm, timesLArm, True)
+
+        namesRArm = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw"]
+        anglesRArm = [[6.7*almath.TO_RAD], [-20.4*almath.TO_RAD], [21.3*almath.TO_RAD], [44.1*almath.TO_RAD], [-31.2*almath.TO_RAD]]
+        timesRArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRArm, anglesRArm, timesRArm, True)
+
+        namesLLeg = ["LHipYawPitch", "LHipRoll", "LHipPitch", "LKneePitch", "LAnklePitch", "LAnkleRoll"]
+        anglesLLeg = [[-10.9*almath.TO_RAD], [-5.3*almath.TO_RAD], [-52.2*almath.TO_RAD], [65.5*almath.TO_RAD], [-3.2*almath.TO_RAD], [3.4*almath.TO_RAD]]
+        timesLLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLLeg, anglesLLeg, timesLLeg, True)
+
+        namesRLeg = ["RHipYawPitch", "RHipRoll", "RHipPitch", "RKneePitch", "RAnklePitch", "RAnkleRoll"]
+        anglesRLeg = [[-10.9*almath.TO_RAD], [4.3*almath.TO_RAD], [-54.6*almath.TO_RAD], [63.4*almath.TO_RAD], [0.1*almath.TO_RAD], [-3.2*almath.TO_RAD]]
+        timesRLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRLeg, anglesRLeg, timesRLeg, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="New Default (2)" id="13" localization="8" tooltip="" x="228" y="222">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        namesLArm = ["LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw"]
+        anglesLArm = [[1.3*almath.TO_RAD], [22*almath.TO_RAD], [1.7*almath.TO_RAD], [-32.1*almath.TO_RAD], [9.4*almath.TO_RAD]]
+        timesLArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLArm, anglesLArm, timesLArm, True)
+
+        namesRArm = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw"]
+        anglesRArm = [[6.7*almath.TO_RAD], [-20.4*almath.TO_RAD], [21.3*almath.TO_RAD], [44.1*almath.TO_RAD], [-31.2*almath.TO_RAD]]
+        timesRArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRArm, anglesRArm, timesRArm, True)
+
+        namesLLeg = ["LHipYawPitch", "LHipRoll", "LHipPitch", "LKneePitch", "LAnklePitch", "LAnkleRoll"]
+        anglesLLeg = [[-10.9*almath.TO_RAD], [-5.3*almath.TO_RAD], [-52.2*almath.TO_RAD], [65.5*almath.TO_RAD], [-3.2*almath.TO_RAD], [3.4*almath.TO_RAD]]
+        timesLLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLLeg, anglesLLeg, timesLLeg, True)
+
+        namesRLeg = ["RHipYawPitch", "RHipRoll", "RHipPitch", "RKneePitch", "RAnklePitch", "RAnkleRoll"]
+        anglesRLeg = [[-10.9*almath.TO_RAD], [4.3*almath.TO_RAD], [-54.6*almath.TO_RAD], [63.4*almath.TO_RAD], [0.1*almath.TO_RAD], [-3.2*almath.TO_RAD]]
+        timesRLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRLeg, anglesRLeg, timesRLeg, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Motor On/Off (1)" id="17" localization="8" tooltip="Stiffen or loosen all motors. Does not work on Pepper, use wakeUp / rest boxes instead." x="222" y="94">
+              <bitmap>media/images/box/movement/stiffness.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.motion = self.session().service("ALMotion")
+
+    def onUnload(self):
+        pass
+
+    def onInput_onSet(self):
+        if( self.getParameter("Action") == "On" ):
+            stiffness = 1
+        else:
+            stiffness = 0
+        self.motion.stiffnessInterpolation("Body", stiffness, 0.1, _async=True)
+        time.sleep(0.1)
+        self.onReady() #~ activate output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onSet" type="1" type_size="1" nature="1" inner="0" tooltip="When this input is stimulated, all motors are stiffened or loosened." id="2" />
+              <Output name="onReady" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when it is done." id="3" />
+              <Parameter name="Action" inherits_from_parent="0" content_type="3" value="On" default_value="On" custom_choice="0" tooltip="Choose if you want to stiffen (On) or loosen (Off) all motors." id="4">
+                <Choice value="Off" />
+                <Choice value="On" />
+              </Parameter>
+              <Resource name="All motors" type="Lock" timeout="0" />
+            </Box>
+            <Box name="Green Button (1)" id="4" localization="8" tooltip="" x="1598" y="1011">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["LShoulderPitch", "LShoulderRoll"]
+        angles = [[-15*almath.TO_RAD, 44*almath.TO_RAD], [5.2*almath.TO_RAD, 5.2*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        time.sleep(2.25);
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Go right/Yellow (1)" id="18" localization="8" tooltip="" x="1607" y="144">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 43.1*almath.TO_RAD], [-39.2*almath.TO_RAD, -39.2*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Go right/Yellow (2)" id="19" localization="8" tooltip="" x="1722" y="188">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 43.1*almath.TO_RAD], [-39.2*almath.TO_RAD, -39.2*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Wait For Signals" id="21" localization="8" tooltip="Wait for both inputs to be stimulated before stimulating its output." x="584" y="632">
+              <bitmap>media/images/box/wait.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.ok = [False]*2
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        ""
+
+    def onStart(self, nInput):
+        self.ok[nInput-1] = True
+        bOutput = True
+        for bOk in self.ok:
+            bOutput = bOutput and bOk
+        if( bOutput ):
+            self.ok = [False]*2
+            self.signalsReceived()
+
+    def onInput_signal1(self):
+        self.onStart(1)
+
+    def onInput_signal2(self):
+        self.onStart(2)]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="signal1" type="1" type_size="1" nature="1" inner="0" tooltip="First signal to wait." id="2" />
+              <Input name="signal2" type="1" type_size="1" nature="1" inner="0" tooltip="Second signal to wait." id="3" />
+              <Input name="signal3" type="1" type_size="1" nature="1" inner="0" tooltip="" id="4" />
+              <Input name="signal4" type="1" type_size="1" nature="1" inner="0" tooltip="" id="5" />
+              <Output name="signalsReceived" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when both inputs have been stimulated." id="6" />
+            </Box>
+            <Box name="Red Ball Tracker" id="22" localization="-1" tooltip="This box makes the robot track a red ball with different modes." x="1068" y="380">
+              <bitmap>media/images/box/tracker/tracker.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+        self.targetName = "RedBall"
+        self.distanceX = 0.0
+        self.distanceY = 0.0
+        self.angleWz = 0.0
+        self.thresholdX = 0.0
+        self.thresholdY = 0.0
+        self.thresholdWz = 0.0
+        self.subscribeDone = None
+        self.effector = "None"
+        self.isRunning = False
+
+    def onLoad(self):
+        self.tracker = self.session().service( "ALTracker" )
+        self.memory = self.session().service("ALMemory")
+        self.BIND_PYTHON(self.getName(), "setParameter")
+        self.BIND_PYTHON(self.getName(), "onTargetLost")
+        self.BIND_PYTHON(self.getName(), "onTargetReached")
+        self.BIND_PYTHON(self.getName(), "onTargetChanged")
+        self.memory.subscribeToEvent("ALTracker/ActiveTargetChanged", self.getName(), "onTargetChanged")
+
+    def onUnload(self):
+        if self.subscribeDone:
+            self.memory.unsubscribeToEvent("ALTracker/TargetLost", self.getName())
+            self.memory.unsubscribeToEvent("ALTracker/TargetReached", self.getName())
+            self.subscribeDone = False
+
+        if self.isRunning:
+            self.tracker.setEffector("None")
+            self.tracker.stopTracker()
+            self.tracker.unregisterTarget(self.targetName)
+            self.isRunning = False
+
+    def onInput_onStart(self):
+        self.memory.subscribeToEvent("ALTracker/TargetLost", self.getName(), "onTargetLost")
+        self.memory.subscribeToEvent("ALTracker/TargetReached", self.getName(), "onTargetReached")
+        self.subscribeDone = True
+
+        mode = self.getParameter("Mode")
+        diameter = self.getParameter("Diameter (m)")
+        self.distanceX = self.getParameter("Distance X (m)")
+        self.thresholdX = self.getParameter("Threshold X (m)")
+        self.distanceY = self.getParameter("Distance Y (m)")
+        self.thresholdY = self.getParameter("Threshold Y (m)")
+        self.angleWz = self.getParameter("Theta (rad)")
+        self.thresholdWz = self.getParameter("Threshold Theta (rad)")
+        self.effector = self.getParameter("Effector")
+
+        self.tracker.setEffector(self.effector)
+
+        self.tracker.registerTarget(self.targetName, diameter)
+        self.tracker.setRelativePosition([-self.distanceX, self.distanceY, self.angleWz,
+                                           self.thresholdX, self.thresholdY, self.thresholdWz])
+        self.tracker.setMode(mode)
+
+        self.tracker.track(self.targetName) #Start tracker for red ball
+        self.isRunning = True
+
+    def onInput_onStop(self):
+        self.onStopped()
+        self.onUnload()
+
+    def setParameter(self, parameterName, newValue):
+        GeneratedClass.setParameter(self, parameterName, newValue)
+        if (parameterName == 'Mode'):
+            self.tracker.setMode(newValue)
+            return
+
+        if (parameterName == "Diameter (m)"):
+            self.tracker.registerTarget(self.targetName, newValue)
+            return
+
+        if (parameterName == "Distance X (m)"):
+            self.distanceX = newValue
+            self.tracker.setRelativePosition([-self.distanceX, self.distanceY, self.angleWz,
+                                               self.thresholdX, self.thresholdY, self.thresholdWz])
+            return
+
+        if (parameterName == "Distance Y (m)"):
+            self.distanceY = newValue
+            self.tracker.setRelativePosition([-self.distanceX, self.distanceY, self.angleWz,
+                                               self.thresholdX, self.thresholdY, self.thresholdWz])
+            return
+
+        if (parameterName == "Theta (rad)"):
+            self.angleWz = newValue
+            self.tracker.setRelativePosition([-self.distanceX, self.distanceY, self.angleWz,
+                                               self.thresholdX, self.thresholdY, self.thresholdWz])
+            return
+
+        if (parameterName == "Threshold X (m)"):
+            self.thresholdX = newValue
+            self.tracker.setRelativePosition([-self.distanceX, self.distanceY, self.angleWz,
+                                               self.thresholdX, self.thresholdY, self.thresholdWz])
+            return
+
+        if (parameterName == "Threshold Y (m)"):
+            self.thresholdY = newValue
+            self.tracker.setRelativePosition([-self.distanceX, self.distanceY, self.angleWz,
+                                               self.thresholdX, self.thresholdY, self.thresholdWz])
+            return
+
+        if (parameterName == "Threshold Theta (rad)"):
+            self.thresholdWz = newValue
+            self.tracker.setRelativePosition([-self.distanceX, self.distanceY, self.angleWz,
+                                               self.thresholdX, self.thresholdY, self.thresholdWz])
+            return
+
+        if(parameterName == "Effector"):
+            self.tracker.setEffector(newValue)
+            self.effector = newValue
+            return
+
+    def onTargetLost(self, key, value, message):
+        self.targetLost()
+
+    def onTargetReached(self, key, value, message):
+        self.targetReached()
+
+    def onTargetChanged(self, key, value, message):
+        if value == self.targetName and not self.subscribeDone:
+            self.memory.subscribeToEvent("ALTracker/TargetLost", self.getName(), "onTargetLost")
+            self.memory.subscribeToEvent("ALTracker/TargetReached", self.getName(), "onTargetReached")
+            self.subscribeDone = True
+        elif value != self.targetName and self.subscribeDone:
+            self.memory.unsubscribeToEvent("ALTracker/TargetLost", self.getName())
+            self.memory.unsubscribeToEvent("ALTracker/TargetReached", self.getName())
+            self.subscribeDone = False]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+              <Output name="targetLost" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when the target is lost." id="5" />
+              <Output name="targetReached" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when the target is reached." id="6" />
+              <Parameter name="Mode" inherits_from_parent="0" content_type="3" value="Head" default_value="Head" custom_choice="0" tooltip="Set tracker mode" id="7">
+                <Choice value="Head" />
+                <Choice value="WholeBody" />
+                <Choice value="Move" />
+              </Parameter>
+              <Parameter name="Effector" inherits_from_parent="0" content_type="3" value="None" default_value="None" custom_choice="0" tooltip="Set effector to use for tracking. Head is always used." id="8">
+                <Choice value="None" />
+                <Choice value="Arms" />
+                <Choice value="LArm" />
+                <Choice value="RArm" />
+              </Parameter>
+              <Parameter name="Diameter (m)" inherits_from_parent="0" content_type="2" value="0.06" default_value="0.06" min="0.01" max="1" tooltip="Diameter of the ball in meters." id="9" />
+              <Parameter name="Distance X (m)" inherits_from_parent="0" content_type="2" value="0.3" default_value="0.3" min="0.01" max="5" tooltip="Distance on X axis the robot will try to maintain from its target in move modes." id="10" />
+              <Parameter name="Threshold X (m)" inherits_from_parent="0" content_type="2" value="0.1" default_value="0.1" min="0.01" max="1" tooltip="Threshold above which the robot will move to track its target in move modes." id="11" />
+              <Parameter name="Distance Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-5" max="5" tooltip="Distance on X axis the robot will try to maintain from its target in move modes." id="12" />
+              <Parameter name="Threshold Y (m)" inherits_from_parent="0" content_type="2" value="0.1" default_value="0.1" min="0" max="1" tooltip="Threshold above which the robot will move to track its target in move modes." id="13" />
+              <Parameter name="Theta (rad)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-3.14" max="3.14" tooltip="Wz angle of the vector robot-target the robot will try to maintain in move modes." id="14" />
+              <Parameter name="Threshold Theta (rad)" inherits_from_parent="0" content_type="2" value="0.3" default_value="0.3" min="0" max="3.14" tooltip="Threshold of the angle of the vector robot-target above which the robot will move to track its target in move modes." id="15" />
+            </Box>
+            <Box name="Red Button (2)" id="23" localization="8" tooltip="" x="1662" y="758">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 45*almath.TO_RAD], [-5*almath.TO_RAD, -5*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Sound Peak (1)" id="24" localization="8" tooltip="Detect sound peaks.&#x0A;Each time a sound peak is detected, the onPeak output is stimulated.&#x0A;&#x0A;Note: You can set the sensibility to detect the sound peak in parameters.&#x0A;&#x0A;V1.1.0" x="820" y="1022">
+              <bitmap>media/images/box/sensors/STM.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+        try:
+            self.sound = self.session().service("ALSoundDetection")
+        except Exception as e:
+            self.sound = None
+            self.logger.error(e)
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        if self.sound:
+            self.sound.setParameter("Sensibility", self.getParameter("Sensibility"))
+        else:
+            self.logger.warning("No Sound Peak can be detected")
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="SoundDetected" type="0" type_size="1" nature="4" stm_value_name="SoundDetected" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="5" />
+              <Output name="onPeak" type="1" type_size="1" nature="2" inner="0" tooltip="Stimulated when a sound peak is detected." id="6" />
+              <Parameter name="Sensibility" inherits_from_parent="0" content_type="2" value="0.5" default_value="0.9" min="0" max="1" tooltip="Sensibility to detect the sound peak." id="7" />
+              <Timeline enable="0">
+                <BehaviorLayer name="behavior_layer1">
+                  <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                      <Box name="SelectElement" id="1" localization="8" tooltip="Enter tooltip here" x="220" y="61">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        self.onStopped( p[ self.getParameter( "index" ) ] )
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
+        pass]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="0" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Output name="onStopped" type="0" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                        <Parameter name="index" inherits_from_parent="0" content_type="1" value="3" default_value="0" min="0" max="100" tooltip="" id="5" />
+                      </Box>
+                      <Box name="If" id="2" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="363" y="60">
+                        <bitmap>media/images/box/box-diagram.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onData(self, p):
+        param = self.getParameter("Value to compare")
+        try:
+            p = float(p)
+            param = float(param)
+        except:
+            p = str(p)
+            param = str(param)
+        operator = self.getParameter("Condition operator")
+        if( operator == "<" ):
+            self.outputTrueOrFalse( p < param )
+        elif( operator == "< or =" ):
+            self.outputTrueOrFalse( p <= param )
+        elif( operator == "=" ):
+            self.outputTrueOrFalse( p == param )
+        elif( operator == "> or =" ):
+            self.outputTrueOrFalse( p >= param )
+        elif( operator == ">" ):
+            self.outputTrueOrFalse( p > param )
+        elif( operator == "≠" ):
+            self.outputTrueOrFalse( p != param )
+        else:
+            raise Exception( "Operator not known: " + str(operator) )
+
+    def outputTrueOrFalse(self, condition):
+        if( condition ):
+            self.output_then()
+        else:
+            self.output_else()]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onData" type="0" type_size="1" nature="1" inner="0" tooltip="The data to test." id="2" />
+                        <Output name="output_then" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent if the condition is true." id="3" />
+                        <Output name="output_else" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent if the condition is false." id="4" />
+                        <Parameter name="Condition operator" inherits_from_parent="0" content_type="3" value="=" default_value="=" custom_choice="0" tooltip='Choose the condition operator.&#x0A;&#x0A;For example:&#x0A;If you choose &quot;&gt; or =&quot;, the condition will be: is the input is higher or equal&#x0A;than the parameter?' id="5">
+                          <Choice value="&lt;" />
+                          <Choice value="&lt; or =" />
+                          <Choice value="=" />
+                          <Choice value="&gt; or =" />
+                          <Choice value="&gt;" />
+                          <Choice value="≠" />
+                        </Parameter>
+                        <Parameter name="Value to compare" inherits_from_parent="0" content_type="3" value="1" default_value="0" custom_choice="0" tooltip="This is the value which is compared to the input value." id="6" />
+                      </Box>
+                      <Box name="Array Streaming" id="3" localization="8" tooltip="When an array is received on the input of this box, each element is sent one by one&#x0A;to the output." x="76" y="62">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onArray(self, p):
+        if( type(p) == type([]) ):
+            for elem in p:
+                self.element(elem)]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onArray" type="0" type_size="1" nature="1" inner="0" tooltip="The array to stream." id="2" />
+                        <Output name="element" type="0" type_size="1" nature="2" inner="0" tooltip="Each element of the array is sent to this output." id="3" />
+                      </Box>
+                      <Link inputowner="2" indexofinput="2" outputowner="1" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="6" outputowner="2" indexofoutput="3" />
+                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="4" />
+                      <Link inputowner="1" indexofinput="2" outputowner="3" indexofoutput="3" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+            </Box>
+            <Box name="New Default (6)" id="26" localization="8" tooltip="" x="1190" y="1024">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        namesLArm = ["LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw"]
+        anglesLArm = [[1.3*almath.TO_RAD], [22*almath.TO_RAD], [1.7*almath.TO_RAD], [-32.1*almath.TO_RAD], [9.4*almath.TO_RAD]]
+        timesLArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLArm, anglesLArm, timesLArm, True)
+
+        namesRArm = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw"]
+        anglesRArm = [[6.7*almath.TO_RAD], [-20.4*almath.TO_RAD], [21.3*almath.TO_RAD], [44.1*almath.TO_RAD], [-31.2*almath.TO_RAD]]
+        timesRArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRArm, anglesRArm, timesRArm, True)
+
+        namesLLeg = ["LHipYawPitch", "LHipRoll", "LHipPitch", "LKneePitch", "LAnklePitch", "LAnkleRoll"]
+        anglesLLeg = [[-10.9*almath.TO_RAD], [-5.3*almath.TO_RAD], [-52.2*almath.TO_RAD], [65.5*almath.TO_RAD], [-3.2*almath.TO_RAD], [3.4*almath.TO_RAD]]
+        timesLLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLLeg, anglesLLeg, timesLLeg, True)
+
+        namesRLeg = ["RHipYawPitch", "RHipRoll", "RHipPitch", "RKneePitch", "RAnklePitch", "RAnkleRoll"]
+        anglesRLeg = [[-10.9*almath.TO_RAD], [4.3*almath.TO_RAD], [-54.6*almath.TO_RAD], [63.4*almath.TO_RAD], [0.1*almath.TO_RAD], [-3.2*almath.TO_RAD]]
+        timesRLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRLeg, anglesRLeg, timesRLeg, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Go right/Yellow (3)" id="27" localization="8" tooltip="" x="1462" y="1016">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 43.1*almath.TO_RAD], [-39.2*almath.TO_RAD, -39.2*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Red Button (3)" id="29" localization="8" tooltip="" x="2132" y="1000">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 45*almath.TO_RAD], [-5*almath.TO_RAD, -5*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="New Default (7)" id="30" localization="8" tooltip="" x="1456" y="758">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        namesLArm = ["LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw"]
+        anglesLArm = [[1.3*almath.TO_RAD], [22*almath.TO_RAD], [1.7*almath.TO_RAD], [-32.1*almath.TO_RAD], [9.4*almath.TO_RAD]]
+        timesLArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLArm, anglesLArm, timesLArm, True)
+
+        namesRArm = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw"]
+        anglesRArm = [[6.7*almath.TO_RAD], [-20.4*almath.TO_RAD], [21.3*almath.TO_RAD], [44.1*almath.TO_RAD], [-31.2*almath.TO_RAD]]
+        timesRArm = [[2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRArm, anglesRArm, timesRArm, True)
+
+        namesLLeg = ["LHipYawPitch", "LHipRoll", "LHipPitch", "LKneePitch", "LAnklePitch", "LAnkleRoll"]
+        anglesLLeg = [[-10.9*almath.TO_RAD], [-5.3*almath.TO_RAD], [-52.2*almath.TO_RAD], [65.5*almath.TO_RAD], [-3.2*almath.TO_RAD], [3.4*almath.TO_RAD]]
+        timesLLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesLLeg, anglesLLeg, timesLLeg, True)
+
+        namesRLeg = ["RHipYawPitch", "RHipRoll", "RHipPitch", "RKneePitch", "RAnklePitch", "RAnkleRoll"]
+        anglesRLeg = [[-10.9*almath.TO_RAD], [4.3*almath.TO_RAD], [-54.6*almath.TO_RAD], [63.4*almath.TO_RAD], [0.1*almath.TO_RAD], [-3.2*almath.TO_RAD]]
+        timesRLeg = [[2], [2], [2], [2], [2], [2]]
+        motionProxy.angleInterpolation(namesRLeg, anglesRLeg, timesRLeg, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Go right/Yellow (5)" id="31" localization="8" tooltip="" x="1732" y="1010">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 43.1*almath.TO_RAD], [-39.2*almath.TO_RAD, -39.2*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Go left/Blue (2)" id="32" localization="8" tooltip="" x="1866" y="1008">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["LShoulderPitch", "LShoulderRoll"]
+        angles = [[-20*almath.TO_RAD, 46.5*almath.TO_RAD], [41*almath.TO_RAD, 41*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Go right/Yellow (6)" id="33" localization="8" tooltip="" x="2002" y="1004">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 43.1*almath.TO_RAD], [-39.2*almath.TO_RAD, -39.2*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Box name="Vision Reco. (1)" id="2" localization="8" tooltip="Recognize pictures, objects and locations which are known by the robot.&#x0A;&#x0A;Note: the robot needs to learn the picture, object or location to be able to recognize&#x0A;it. The learning process can be done through the Video Monitor (in Choregraphe&#x0A;menu, click on View, then Video Monitor)." x="1604" y="540">
+              <bitmap>media/images/box/interaction/reco.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="4" />
+              <Output name="onPictureLabel" type="3" type_size="1" nature="2" inner="0" tooltip="Every time pictures/objects/locations are recognized, send the first picture recognized." id="5" />
+              <Output name="onNoPicture" type="1" type_size="1" nature="2" inner="0" tooltip="No picture, object or location has been recognized." id="6" />
+              <Timeline enable="0">
+                <BehaviorLayer name="behavior_layer1">
+                  <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                      <Box name="Vision Reco." id="1" localization="8" tooltip="Recognize pictures, objects and locations which are already known by the robot.&#x0A;&#x0A;Note: the robot needs to learn the picture, object or location to be able to recognize&#x0A;it. The learning process can be done through the Video Monitor (in Choregraphe&#x0A;menu, click on View, then Video Monitor)." x="95" y="161">
+                        <bitmap>media/images/box/interaction/reco.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Input name="PictureDetected" type="0" type_size="1" nature="4" stm_value_name="PictureDetected" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
+                        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="5" />
+                        <Output name="onPictureLabel" type="0" type_size="1" nature="2" inner="0" tooltip="Every time pictures/objects/locations are recognized, send the result as&#x0A;[Picture_1, ..., Picture_N], with Picture_n = [label1,...,label_M]." id="6" />
+                        <Output name="onNoPicture" type="1" type_size="1" nature="2" inner="0" tooltip="No picture, object or location has been recognized." id="7" />
+                        <Timeline enable="0">
+                          <BehaviorLayer name="behavior_layer1">
+                            <BehaviorKeyframe name="keyframe1" index="1">
+                              <Diagram>
+                                <Box name="Process Reco." id="3" localization="8" tooltip="Process picture detection extractor data (PictureDetected) to extract the labels of&#x0A;recognized pictures, objects and locations, and notify when there is nothing&#x0A;of these recognized.&#x0A;&#x0A;An output (either one or the other) is stimulated each time the recognized&#x0A;pictures, objects and locations change." x="188" y="60">
+                                  <bitmap>media/images/box/interaction/reco.png</bitmap>
+                                  <script language="4">
+                                    <content>
+                                      <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.nPicturesDetected = -1
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        if(len(p) > 1):
+            self.nPicturesDetected = len(p[1])
+            labels = []
+            for s in p[1]:
+                labels.append(s[0])
+            self.onPictureLabel( labels )
+        else:
+            if(self.nPicturesDetected != 0):
+                self.nPicturesDetected = 0
+                self.onNoPicture()]]>
+                                    </content>
+                                  </script>
+                                  <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                                  <Input name="onStart" type="0" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input. It must be the&#x0A;PictureDetected extractor data." id="2" />
+                                  <Output name="onPictureLabel" type="0" type_size="1" nature="1" inner="0" tooltip="List of recognized pictures, objects and locations labels. It is sent regularly as&#x0A;long as they are recognized.&#x0A;&#x0A;For example, you could obtain this kind of result:&#x0A;[[&apos;cover&apos;, &apos;my book&apos;], [&apos;fridge corner&apos;, &apos;kitchen&apos;, &apos;my flat&apos;]]" id="3" />
+                                  <Output name="onNoPicture" type="1" type_size="1" nature="1" inner="0" tooltip="No picture, object or location is recognized." id="4" />
+                                </Box>
+                                <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="4" />
+                                <Link inputowner="0" indexofinput="6" outputowner="3" indexofoutput="3" />
+                                <Link inputowner="0" indexofinput="7" outputowner="3" indexofoutput="4" />
+                              </Diagram>
+                            </BehaviorKeyframe>
+                          </BehaviorLayer>
+                        </Timeline>
+                      </Box>
+                      <Box name="ConvertIntoStrings" id="3" localization="8" tooltip='Convert the array of recognized objects into several strings sent one after another.&#x0A;&#x0A;For example, if the array is:&#x0A;[[&quot;page 3&quot;, &quot;Harry Potter&quot;], [&quot;bed&quot;, &quot;bedroom&quot;, &quot;home&quot;]]&#x0A;Then the output will be stimulated first with:&#x0A;&quot;Harry Potter page 3&quot;&#x0A;And then with:&#x0A;&quot;home bedroom bed&quot;' x="285" y="49">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        for element in p:
+            element.reverse()
+            newElement = ""
+            for i in range(len(element)-1):
+                newElement += str(element[i]) + " "
+            if( len(element) > 0 ):
+                newElement += str(element[len(element)-1])
+            self.onStopped( newElement )
+            self.logger.info( newElement )]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="0" type_size="1" nature="1" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Output name="onStopped" type="3" type_size="1" nature="2" inner="0" tooltip="Signal sent when box behavior is finished." id="3" />
+                      </Box>
+                      <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+                      <Link inputowner="0" indexofinput="6" outputowner="1" indexofoutput="7" />
+                      <Link inputowner="3" indexofinput="2" outputowner="1" indexofoutput="6" />
+                      <Link inputowner="0" indexofinput="5" outputowner="3" indexofoutput="3" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+            </Box>
+            <Box name="Wait For Signals (1)" id="12" localization="8" tooltip="Wait for both inputs to be stimulated before stimulating its output." x="1822" y="402">
+              <bitmap>media/images/box/wait.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.ok = [False]*2
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        ""
+
+    def onStart(self, nInput):
+        self.ok[nInput-1] = True
+        bOutput = True
+        for bOk in self.ok:
+            bOutput = bOutput and bOk
+        if( bOutput ):
+            self.ok = [False]*2
+            self.signalsReceived()
+
+    def onInput_signal1(self):
+        self.onStart(1)
+
+    def onInput_signal2(self):
+        self.onStart(2)]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="signal1" type="1" type_size="1" nature="1" inner="0" tooltip="First signal to wait." id="2" />
+              <Input name="signal2" type="1" type_size="1" nature="1" inner="0" tooltip="Second signal to wait." id="3" />
+              <Output name="signalsReceived" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when both inputs have been stimulated." id="4" />
+            </Box>
+            <Box name="Sound Peak (2)" id="20" localization="8" tooltip="Detect sound peaks.&#x0A;Each time a sound peak is detected, the onPeak output is stimulated.&#x0A;&#x0A;Note: You can set the sensibility to detect the sound peak in parameters.&#x0A;&#x0A;V1.1.0" x="1998" y="748">
+              <bitmap>media/images/box/sensors/STM.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+        try:
+            self.sound = self.session().service("ALSoundDetection")
+        except Exception as e:
+            self.sound = None
+            self.logger.error(e)
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        if self.sound:
+            self.sound.setParameter("Sensibility", self.getParameter("Sensibility"))
+        else:
+            self.logger.warning("No Sound Peak can be detected")
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="SoundDetected" type="0" type_size="1" nature="4" stm_value_name="SoundDetected" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="5" />
+              <Output name="onPeak" type="1" type_size="1" nature="2" inner="0" tooltip="Stimulated when a sound peak is detected." id="6" />
+              <Parameter name="Sensibility" inherits_from_parent="0" content_type="2" value="0.5" default_value="0.9" min="0" max="1" tooltip="Sensibility to detect the sound peak." id="7" />
+              <Timeline enable="0">
+                <BehaviorLayer name="behavior_layer1">
+                  <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                      <Box name="SelectElement" id="1" localization="8" tooltip="Enter tooltip here" x="220" y="61">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        self.onStopped( p[ self.getParameter( "index" ) ] )
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
+        pass]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="0" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Output name="onStopped" type="0" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                        <Parameter name="index" inherits_from_parent="0" content_type="1" value="3" default_value="0" min="0" max="100" tooltip="" id="5" />
+                      </Box>
+                      <Box name="If" id="2" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="363" y="60">
+                        <bitmap>media/images/box/box-diagram.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onData(self, p):
+        param = self.getParameter("Value to compare")
+        try:
+            p = float(p)
+            param = float(param)
+        except:
+            p = str(p)
+            param = str(param)
+        operator = self.getParameter("Condition operator")
+        if( operator == "<" ):
+            self.outputTrueOrFalse( p < param )
+        elif( operator == "< or =" ):
+            self.outputTrueOrFalse( p <= param )
+        elif( operator == "=" ):
+            self.outputTrueOrFalse( p == param )
+        elif( operator == "> or =" ):
+            self.outputTrueOrFalse( p >= param )
+        elif( operator == ">" ):
+            self.outputTrueOrFalse( p > param )
+        elif( operator == "≠" ):
+            self.outputTrueOrFalse( p != param )
+        else:
+            raise Exception( "Operator not known: " + str(operator) )
+
+    def outputTrueOrFalse(self, condition):
+        if( condition ):
+            self.output_then()
+        else:
+            self.output_else()]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onData" type="0" type_size="1" nature="1" inner="0" tooltip="The data to test." id="2" />
+                        <Output name="output_then" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent if the condition is true." id="3" />
+                        <Output name="output_else" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent if the condition is false." id="4" />
+                        <Parameter name="Condition operator" inherits_from_parent="0" content_type="3" value="=" default_value="=" custom_choice="0" tooltip='Choose the condition operator.&#x0A;&#x0A;For example:&#x0A;If you choose &quot;&gt; or =&quot;, the condition will be: is the input is higher or equal&#x0A;than the parameter?' id="5">
+                          <Choice value="&lt;" />
+                          <Choice value="&lt; or =" />
+                          <Choice value="=" />
+                          <Choice value="&gt; or =" />
+                          <Choice value="&gt;" />
+                          <Choice value="≠" />
+                        </Parameter>
+                        <Parameter name="Value to compare" inherits_from_parent="0" content_type="3" value="1" default_value="0" custom_choice="0" tooltip="This is the value which is compared to the input value." id="6" />
+                      </Box>
+                      <Box name="Array Streaming" id="3" localization="8" tooltip="When an array is received on the input of this box, each element is sent one by one&#x0A;to the output." x="76" y="62">
+                        <bitmap>media/images/box/box-script.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onArray(self, p):
+        if( type(p) == type([]) ):
+            for elem in p:
+                self.element(elem)]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onArray" type="0" type_size="1" nature="1" inner="0" tooltip="The array to stream." id="2" />
+                        <Output name="element" type="0" type_size="1" nature="2" inner="0" tooltip="Each element of the array is sent to this output." id="3" />
+                      </Box>
+                      <Link inputowner="2" indexofinput="2" outputowner="1" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="6" outputowner="2" indexofoutput="3" />
+                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="4" />
+                      <Link inputowner="1" indexofinput="2" outputowner="3" indexofoutput="3" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+            </Box>
+            <Box name="Red Button (1)" id="25" localization="8" tooltip="" x="1338" y="32">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import almath
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        motionProxy = ALProxy("ALMotion")
+        names = ["RShoulderPitch", "RShoulderRoll"]
+        angles = [[-18*almath.TO_RAD, 45*almath.TO_RAD], [-5*almath.TO_RAD, -5*almath.TO_RAD]]
+        times = [[1, 2], [1, 2]]
+        motionProxy.angleInterpolation(names, angles, times, True)
+        self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+            </Box>
+            <Link inputowner="8" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="14" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="13" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="15" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="17" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="19" indexofinput="2" outputowner="18" indexofoutput="4" />
+            <Link inputowner="21" indexofinput="2" outputowner="13" indexofoutput="4" />
+            <Link inputowner="21" indexofinput="3" outputowner="15" indexofoutput="4" />
+            <Link inputowner="21" indexofinput="4" outputowner="14" indexofoutput="4" />
+            <Link inputowner="21" indexofinput="5" outputowner="8" indexofoutput="4" />
+            <Link inputowner="6" indexofinput="2" outputowner="21" indexofoutput="6" />
+            <Link inputowner="22" indexofinput="2" outputowner="6" indexofoutput="4" />
+            <Link inputowner="1" indexofinput="2" outputowner="19" indexofoutput="4" />
+            <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
+            <Link inputowner="0" indexofinput="4" outputowner="23" indexofoutput="4" />
+            <Link inputowner="24" indexofinput="2" outputowner="5" indexofoutput="5" />
+            <Link inputowner="6" indexofinput="3" outputowner="24" indexofoutput="6" />
+            <Link inputowner="22" indexofinput="3" outputowner="24" indexofoutput="6" />
+            <Link inputowner="9" indexofinput="3" outputowner="24" indexofoutput="6" />
+            <Link inputowner="18" indexofinput="3" outputowner="24" indexofoutput="6" />
+            <Link inputowner="19" indexofinput="3" outputowner="24" indexofoutput="6" />
+            <Link inputowner="1" indexofinput="3" outputowner="24" indexofoutput="6" />
+            <Link inputowner="6" indexofinput="3" outputowner="11" indexofoutput="6" />
+            <Link inputowner="22" indexofinput="3" outputowner="11" indexofoutput="6" />
+            <Link inputowner="9" indexofinput="3" outputowner="11" indexofoutput="6" />
+            <Link inputowner="18" indexofinput="3" outputowner="11" indexofoutput="6" />
+            <Link inputowner="19" indexofinput="3" outputowner="11" indexofoutput="6" />
+            <Link inputowner="1" indexofinput="3" outputowner="11" indexofoutput="6" />
+            <Link inputowner="23" indexofinput="2" outputowner="30" indexofoutput="4" />
+            <Link inputowner="30" indexofinput="2" outputowner="11" indexofoutput="5" />
+            <Link inputowner="26" indexofinput="2" outputowner="24" indexofoutput="5" />
+            <Link inputowner="7" indexofinput="2" outputowner="26" indexofoutput="4" />
+            <Link inputowner="27" indexofinput="2" outputowner="7" indexofoutput="4" />
+            <Link inputowner="4" indexofinput="2" outputowner="27" indexofoutput="4" />
+            <Link inputowner="31" indexofinput="2" outputowner="4" indexofoutput="4" />
+            <Link inputowner="32" indexofinput="2" outputowner="31" indexofoutput="4" />
+            <Link inputowner="33" indexofinput="2" outputowner="32" indexofoutput="4" />
+            <Link inputowner="29" indexofinput="2" outputowner="33" indexofoutput="4" />
+            <Link inputowner="0" indexofinput="4" outputowner="29" indexofoutput="4" />
+            <Link inputowner="11" indexofinput="2" outputowner="21" indexofoutput="6" />
+            <Link inputowner="5" indexofinput="2" outputowner="21" indexofoutput="6" />
+            <Link inputowner="18" indexofinput="2" outputowner="12" indexofoutput="4" />
+            <Link inputowner="12" indexofinput="3" outputowner="2" indexofoutput="6" />
+            <Link inputowner="2" indexofinput="2" outputowner="20" indexofoutput="6" />
+            <Link inputowner="20" indexofinput="2" outputowner="2" indexofoutput="5" />
+            <Link inputowner="25" indexofinput="2" outputowner="9" indexofoutput="4" />
+            <Link inputowner="9" indexofinput="2" outputowner="22" indexofoutput="6" />
+            <Link inputowner="2" indexofinput="2" outputowner="25" indexofoutput="4" />
+            <Link inputowner="12" indexofinput="2" outputowner="25" indexofoutput="4" />
+          </Diagram>
+        </BehaviorKeyframe>
+      </BehaviorLayer>
+    </Timeline>
+  </Box>
+</ChoregrapheProject>
